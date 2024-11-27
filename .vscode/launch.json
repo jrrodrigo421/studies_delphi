@@ -1,14 +1,10 @@
 {
-  "version": "2.0.0",
-  "tasks": [
+  "version": "0.2.0",
+  "configurations": [
     {
-      "label": "Compile Delphi Project",
-      "type": "shell",
-      "command": "C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin\\dcc32.exe",
-      "args": [
-        "${workspaceFolder}\\Project1.dpr"
-      ],
-      "problemMatcher": []
+      "name": "DEBUG",
+      "preLaunchTask": "Compile Delphi Project",
+      "request": "launch"
     }
   ]
 }
