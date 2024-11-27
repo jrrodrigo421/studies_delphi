@@ -83,7 +83,7 @@ var
 begin
   num1 := StrToFloat(txtNum1.Text);
   num2 := StrToFloat(txtNum2.Text);
-  resultado := num1 / num2;
+  resultado := num1 * num2;
   txtResultado.Text := FloatToStr(resultado);
 
 end;
