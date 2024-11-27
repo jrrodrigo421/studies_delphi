@@ -1,0 +1,60 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.FormCreate(Sender: TObject);
+var
+  Edit1, Edit2: TEdit;
+  Button: TButton;
+begin
+  // Configuração do formulário
+  Self.Caption := 'Form com Inputs e Botão';
+  Self.Width := 400;
+  Self.Height := 300;
+
+  // Criação do primeiro campo de entrada
+  Edit1 := TEdit.Create(Self);
+  Edit1.Parent := Self;
+  Edit1.Width := 200;
+  Edit1.Left := (Self.ClientWidth div 2) - (Edit1.Width div 2);
+  Edit1.Top := 80;
+
+  // Criação do segundo campo de entrada
+  Edit2 := TEdit.Create(Self);
+  Edit2.Parent := Self;
+  Edit2.Width := 200;
+  Edit2.Left := (Self.ClientWidth div 2) - (Edit2.Width div 2);
+  Edit2.Top := Edit1.Top + Edit1.Height + 10; // Espaçamento de 10px abaixo do Edit1
+
+  // Criação do botão
+  Button := TButton.Create(Self);
+  Button.Parent := Self;
+  Button.Caption := 'Enviar';
+  Button.Width := 100;
+  Button.Height := 30;
+  Button.Left := (Self.ClientWidth div 2) - (Button.Width div 2);
+  Button.Top := Edit2.Top + Edit2.Height + 20; // Espaçamento de 20px abaixo do Edit2
+end;
+
+end.
+
