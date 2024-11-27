@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile Delphi Project",
+      "type": "shell",
+      "command": "C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin\\dcc32.exe",
+      "args": [
+        "${workspaceFolder}\\Project1.dpr"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
