@@ -1,4 +1,4 @@
-unit Unit1;
+﻿unit Unit1;
 
 interface
 
@@ -25,6 +25,7 @@ type
 
   private
     { Private declarations }
+    procedure CalcularResultado(operacao: string);
   public
     { Public declarations }
   end;
@@ -37,56 +38,42 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btSomarClick(Sender: TObject);
-var
-  num1: Integer;
-  num2: Integer;
-  resultado: Integer;
 begin
-  num1 := StrToInt(txtNum1.Text);
-  num2 := StrToInt(txtNum2.Text);
-  resultado := num1 + num2;
-  txtResultado.Text := IntToStr(resultado);
-
+  CalcularResultado('somar');
 end;
 
 procedure TForm1.btSubtrairClick(Sender: TObject);
-var
-  num1: Integer;
-  num2: Integer;
-  resultado: Integer;
 begin
-  num1 := StrToInt(txtNum1.Text);
-  num2 := StrToInt(txtNum2.Text);
-  resultado := num1 - num2;
-  txtResultado.Text := IntToStr(resultado);
-
+  CalcularResultado('subtrair');
 end;
 
 procedure TForm1.btMultiplicarClick(Sender: TObject);
-var
-  num1: Integer;
-  num2: Integer;
-  resultado: Integer;
 begin
-  num1 := StrToInt(txtNum1.Text);
-  num2 := StrToInt(txtNum2.Text);
-  resultado := num1 * num2;
-  txtResultado.Text := IntToStr(resultado);
-
+  CalcularResultado('multiplicar');
 end;
 
 procedure TForm1.btDividirClick(Sender: TObject);
+begin
+  CalcularResultado('dividir');
+end;
+
+procedure TForm1.CalcularResultado(operacao: string);
 var
-  num1: Real;
-  num2: Real;
-  resultado: Real;
+  num1, num2, resultado: Real;
 begin
   num1 := StrToFloat(txtNum1.Text);
   num2 := StrToFloat(txtNum2.Text);
-  resultado := num1 * num2;
-  txtResultado.Text := FloatToStr(resultado);
 
+  if operacao = 'somar' then
+    resultado := num1 + num2
+  else if operacao = 'subtrair' then
+    resultado := num1 - num2
+  else if operacao = 'multiplicar' then
+    resultado := num1 * num2
+  else if operacao = 'dividir' then
+    resultado := num1 / num2;
+
+  txtResultado.Text := FloatToStr(resultado);
 end;
 
 end.
-
